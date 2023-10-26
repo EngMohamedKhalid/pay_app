@@ -98,7 +98,7 @@ globalAlertDialogue(String title1,
                       onPressed: onOk?? () {
                         Navigator.pop(context);
                       },
-                      color: Color(0xffEB5757),
+                      color: const Color(0xffEB5757),
                       child: Center(
                         child: Text(
                           buttonText2??AppStrings.ok,

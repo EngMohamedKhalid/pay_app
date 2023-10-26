@@ -30,7 +30,7 @@ class OtpWidget extends StatelessWidget {
           // fontFamily: fontRegular,
         ),
         decoration: BoxDecoration(
-          color: Color(0xffF8F8F8),
+          color: const Color(0xffF8F8F8),
           borderRadius: BorderRadius.circular(15),
         ),
       ),
@@ -44,7 +44,7 @@ class OtpWidget extends StatelessWidget {
           // fontFamily: fontRegular,
         ),
         decoration: BoxDecoration(
-          color: Color(0xffF8F8F8),
+          color: const Color(0xffF8F8F8),
           borderRadius: BorderRadius.circular(15),
           border: Border.all(color: AppColors.white,),
         ),

@@ -1,6 +1,12 @@
 import 'package:data_connection_checker_nulls/data_connection_checker_nulls.dart';
 import 'package:get_it/get_it.dart';
+import 'package:pay_app/features/payment_feature/data/data_sources/payment_remote_data_source.dart';
+import 'package:pay_app/features/payment_feature/data/repo_impl/payment_repo_impl.dart';
+import 'package:pay_app/features/payment_feature/domain/repo/payment_repo.dart';
+import 'package:pay_app/features/payment_feature/domain/use_cases/create_payment_use_case.dart';
+import 'package:pay_app/features/payment_feature/domain/use_cases/ephemeral_key_use_case.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+import '../../features/payment_feature/domain/use_cases/create_customer_use_case.dart';
 import '../network/network_info.dart';
 import '../network/network_manager.dart';
 import '../services/cache_service.dart';
@@ -10,7 +16,7 @@ final getIt = GetIt.instance;
 
 Future<void> init() async {
   // data sources
-  // getIt.registerLazySingleton<AuthRemoteDataSource>(() => AuthRemoteDataSourceImpl(networkManager: getIt()),);
+   getIt.registerLazySingleton<PaymentRemoteDataSource>(() => PaymentRemoteDataSourceImpl());
   // getIt.registerLazySingleton<CategoriesRemoteDataSource>(() => CategoriesRemoteDataSourceImpl(networkManager: getIt()),);
   // getIt.registerLazySingleton<SearchRemoteDataSource>(() => SearchRemoteDataSourceImpl(networkManager: getIt()),);
   // getIt.registerLazySingleton<AccountRemoteDataSource>(() => AccountRemoteDataSourceImpl(networkManager: getIt()),);
@@ -22,7 +28,7 @@ Future<void> init() async {
   // getIt.registerLazySingleton<NotificationRemoteDataSource>(() => NotificationRemoteDataSourceImpl(networkManager: getIt()),);
 
   //* Repository
-  // getIt.registerLazySingleton<AuthRepo>(() => AuthRepoImpl(authRemoteDataSource: getIt(), networkInfo: getIt()),);
+   getIt.registerLazySingleton<PaymentRepo>(() => PaymentRepoImpl(paymentRemoteDataSource: getIt(), networkInfo: getIt()),);
   // getIt.registerLazySingleton<CategoriesRepo>(() => CategoriesRepoImpl(categoriesRemoteDataSource: getIt(), networkInfo: getIt(),),);
   // getIt.registerLazySingleton<SearchRepo>(() => SearchRepoImpl(searchRemoteDataSource: getIt(), networkInfo: getIt()),);
   // getIt.registerLazySingleton<AccountRepo>(() => AccountRepoImpl(accountRemoteDataSource: getIt(), networkInfo: getIt()),);
@@ -34,7 +40,7 @@ Future<void> init() async {
   // getIt.registerLazySingleton<NotificationRepo>(() => NotificationRepoImpl( networkInfo: getIt(), notificationRemoteDataSource: getIt()),);
 
   //* Use cases
-  _authUseCases();
+  _paymentUseCase();
   _accountUseCases();
   _cartUseCases();
   _favouriteUseCases();
@@ -129,4 +135,9 @@ void _addressCases() {
   // getIt.registerLazySingleton<EditAddressUseCase>(() => EditAddressUseCase(repository: getIt()));
   // getIt.registerLazySingleton<DeleteAddressUseCase>(() => DeleteAddressUseCase(repository: getIt()));
   // getIt.registerLazySingleton<GetCitiesUseCase>(() => GetCitiesUseCase(repository: getIt()));
+}
+void _paymentUseCase() {
+  getIt.registerLazySingleton<EphemeralKeyUseCase>(() => EphemeralKeyUseCase(paymentRepo: getIt()));
+  getIt.registerLazySingleton<CreateCustomerUseCase>(() => CreateCustomerUseCase(paymentRepo: getIt()));
+  getIt.registerLazySingleton<CreatePaymentIntentUseCase>(() => CreatePaymentIntentUseCase(paymentRepo: getIt()));
 }

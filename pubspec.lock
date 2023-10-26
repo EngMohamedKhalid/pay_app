@@ -161,6 +161,14 @@ packages:
       url: "https://pub.flutter-io.cn"
     source: hosted
     version: "0.7.8"
+  dio:
+    dependency: "direct main"
+    description:
+      name: dio
+      sha256: "417e2a6f9d83ab396ec38ff4ea5da6c254da71e4db765ad737a42af6930140b7"
+      url: "https://pub.flutter-io.cn"
+    source: hosted
+    version: "5.3.3"
   dropdown_button2:
     dependency: "direct main"
     description:
@@ -323,6 +331,14 @@ packages:
       url: "https://pub.flutter-io.cn"
     source: hosted
     version: "5.2.0"
+  flutter_stripe:
+    dependency: "direct main"
+    description:
+      name: flutter_stripe
+      sha256: "7ad314650f6b794e7006a6f906ddbde548fff4e4cff7ad618452728c6b895d1e"
+      url: "https://pub.flutter-io.cn"
+    source: hosted
+    version: "9.5.0+1"
   flutter_svg:
     dependency: "direct main"
     description:
@@ -349,6 +365,14 @@ packages:
       url: "https://pub.flutter-io.cn"
     source: hosted
     version: "8.2.2"
+  freezed_annotation:
+    dependency: transitive
+    description:
+      name: freezed_annotation
+      sha256: c3fd9336eb55a38cc1bbd79ab17573113a8deccd0ecbbf926cca3c62803b5c2d
+      url: "https://pub.flutter-io.cn"
+    source: hosted
+    version: "2.4.1"
   get_it:
     dependency: "direct main"
     description:
@@ -469,6 +493,14 @@ packages:
       url: "https://pub.flutter-io.cn"
     source: hosted
     version: "0.6.7"
+  json_annotation:
+    dependency: transitive
+    description:
+      name: json_annotation
+      sha256: b10a7b2ff83d83c777edba3c6a0f97045ddadd56c944e1a23a3fdf43a1bf4467
+      url: "https://pub.flutter-io.cn"
+    source: hosted
+    version: "4.8.1"
   lints:
     dependency: transitive
     description:
@@ -810,6 +842,30 @@ packages:
       url: "https://pub.flutter-io.cn"
     source: hosted
     version: "1.2.0"
+  stripe_android:
+    dependency: transitive
+    description:
+      name: stripe_android
+      sha256: c3a4398a777e4378bbc528e7244a73bcd3e6c6d807fce5bb8bcabc21d31abe8c
+      url: "https://pub.flutter-io.cn"
+    source: hosted
+    version: "9.5.0+1"
+  stripe_ios:
+    dependency: transitive
+    description:
+      name: stripe_ios
+      sha256: "2756ea9bb3ced403bb7bd97b8bfd3ff2d44e481d613f6150fedb38f70947af11"
+      url: "https://pub.flutter-io.cn"
+    source: hosted
+    version: "9.5.0+1"
+  stripe_platform_interface:
+    dependency: transitive
+    description:
+      name: stripe_platform_interface
+      sha256: "078142b37e3b7a40f7f9f30428bc3fd3234c493b9b4269ae6f298b7fcfa40f33"
+      url: "https://pub.flutter-io.cn"
+    source: hosted
+    version: "9.5.0+1"
   term_glyph:
     dependency: transitive
     description:

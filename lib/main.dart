@@ -3,7 +3,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_easyloading/flutter_easyloading.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:flutter_stripe/flutter_stripe.dart';
 import 'package:overlay_support/overlay_support.dart';
+import 'package:pay_app/app/utils/consts.dart';
+import 'package:pay_app/features/payment_feature/presentation/cubit/payment_cubit.dart';
 import 'app/themes/get_theme.dart';
 import 'app/utils/bloc_observer.dart';
 import 'app/utils/get_it_injection.dart';
@@ -17,11 +20,15 @@ void main() async{
   await EasyLocalization.ensureInitialized();
   Bloc.observer = MyBlocObserver();
   await init();
+  Stripe.publishableKey = kPublishKey;
   runApp(
     MultiBlocProvider(
       providers: [
         BlocProvider<CarouselCubit>(
           create: (BuildContext context) => CarouselCubit(),
+        ),
+        BlocProvider<PaymentCubit>(
+          create: (BuildContext context) => PaymentCubit(),
         ),
       ],
       child: const MyApp(),
@@ -67,9 +74,6 @@ class MyApp extends StatelessWidget {
             theme: PayTheme(),
             debugShowCheckedModeBanner: false,
             navigatorKey: getIt<NavHelper>().navigatorKey,
-            //
-            //* EasyLoading
-            //
             builder: EasyLoading.init(
               builder: (context, widget) {
                 return MediaQuery(
@@ -85,3 +89,9 @@ class MyApp extends StatelessWidget {
     );
   }
 }
+//seckret key
+//sk_test_51NcYZ1IFBuxSP4IyHPxRBxM7hwSNclM111B2vACftn35lmmhIw1Lyu1A1UkJ4AT08DWRULN37gUyZAXSdRKRnQ2v00hPaFnFsX
+
+
+// publish key
+// pk_test_51NcYZ1IFBuxSP4IyHk35qI4RSKdmWyWl40XRt6T2SPc9OPo35cwnMJY0um0DwCChfDfyMD9Hiq7Ecn8PRttdrHP100XAw4bhFL
